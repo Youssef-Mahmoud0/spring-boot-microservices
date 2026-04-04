@@ -58,7 +58,7 @@ public class MovieCatalogResource {
 
 
         return response.getMoviesList().stream()
-                .map(movie -> new MovieDTO(movie.getId(), movie.getTitle(), movie.getRating()))
+                .map(movie -> new MovieDTO(movie.getId(), movie.getName(), movie.getRating()))
                 .collect(Collectors.toList());
     }
 }

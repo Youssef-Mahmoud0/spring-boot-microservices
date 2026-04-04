@@ -3,12 +3,12 @@ package com.moviecatalogservice.models;
 
 public class MovieDTO {
     private int movieId;
-    private String title;
+    private String name;
     private double rating;
 
     public MovieDTO(int movieId, String title, double rating) {
         this.movieId = movieId;
-        this.title = title;
+        this.name = title;
         this.rating = rating;
     }
 
@@ -20,12 +20,12 @@ public class MovieDTO {
         this.movieId = movieId;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getRating() {
