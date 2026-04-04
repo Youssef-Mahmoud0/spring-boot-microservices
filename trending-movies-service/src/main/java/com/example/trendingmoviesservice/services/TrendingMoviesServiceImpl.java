@@ -19,6 +19,8 @@ public class TrendingMoviesServiceImpl
     public void getTrendingMovies(TrendingMoviesRequest request,
                                   StreamObserver<TrendingMoviesResponse> responseObserver) {
 
+        System.out.println("Received request for trending movies with limit: " + request.getLimit());
+
         int limit = request.getLimit();
         if (limit <= 0) limit = 10;
 
