@@ -1,5 +1,6 @@
 package com.moviecatalogservice.resources;
 
+import com.example.trendingmoviesservice.grpc.Movie;
 import com.example.trendingmoviesservice.grpc.TrendingMoviesResponse;
 import com.moviecatalogservice.models.CatalogItem;
 import com.moviecatalogservice.models.MovieDTO;
@@ -52,8 +53,9 @@ public class MovieCatalogResource {
     // Calls TrendingService which goes over gRPC to trending-movies-service
     // Returns the top 10 movies as a list of protobuf Movie objects serialized to JSON
     @GetMapping("/topMovies")
-    public List<MovieDTO> getTopTen(@RequestParam(defaultValue = "10") int limit) {
+    public List<MovieDTO> getTopMovies(@RequestParam(defaultValue = "10") int limit) {
         TrendingMoviesResponse response = trendingMoviesService.getTopTrendingMovies(limit);
+
 
         return response.getMoviesList().stream()
                 .map(movie -> new MovieDTO(movie.getId(), movie.getTitle(), movie.getRating()))
