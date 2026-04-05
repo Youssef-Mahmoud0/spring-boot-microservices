@@ -1,5 +1,7 @@
 package com.example.movieinfoservice;
 
+import com.example.movieinfoservice.repository.MovieCacheRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -24,6 +26,14 @@ public class MovieInfoServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(MovieInfoServiceApplication.class, args);
+    }
+    @Bean
+    public CommandLineRunner clearCacheOnStartup(MovieCacheRepository movieCacheRepository) {
+        return args -> {
+            long count = movieCacheRepository.count();
+            movieCacheRepository.deleteAll();
+            System.out.println("✅ Cache truncated on startup. Removed " + count + " entries.");
+        };
     }
 
 }
