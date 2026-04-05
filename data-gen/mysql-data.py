@@ -5,8 +5,8 @@ import mysql.connector
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "pass",
-    "database": "db-name"
+    "password": "password1234",
+    "database": "rating-db",
 }
 
 MOVIE_FILE = "movie_ids.txt" #9238
