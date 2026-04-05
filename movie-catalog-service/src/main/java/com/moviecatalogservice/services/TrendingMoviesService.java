@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class TrendingMoviesService {
 
-    // "trending-movies-service" must exactly match the key in application.properties:
-    // grpc.client.trending-movies-service.address=...
     @GrpcClient("trending-movies-service")
     private TrendingMoviesServiceGrpc.TrendingMoviesServiceBlockingStub stub;
 
