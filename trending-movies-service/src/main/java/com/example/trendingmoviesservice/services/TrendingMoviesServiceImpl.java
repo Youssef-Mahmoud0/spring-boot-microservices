@@ -42,13 +42,13 @@ public class TrendingMoviesServiceImpl
                     int movieId = row.getMovieId();
                     double avgRating = row.getAvgRating();
 
-                    com.example.trendingmoviesservice.models.Movie movieDto =
+                    com.example.trendingmoviesservice.models.Movie movie =
                             restTemplate.getForObject(
                                     "http://movie-info-service/movies/" + movieId,
                                     com.example.trendingmoviesservice.models.Movie.class
                             );
 
-                    String name = (movieDto != null) ? movieDto.getName() : "Unknown";
+                    String name = (movie != null) ? movie.getName() : "Unknown";
 
                     return Movie.newBuilder()
                             .setId(movieId)

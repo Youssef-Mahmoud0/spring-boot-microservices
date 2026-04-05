@@ -20,14 +20,7 @@ public class RatingsResource {
     private  RatingService ratingService;
     @RequestMapping("/{userId}")
     public UserRating getRatingsOfUser(@PathVariable String userId) {
-
-        List<RatingEntity> entities = ratingService.getRatingsByUserId(userId);
-
-        List<Rating> ratings = entities.stream()
-                .map(e -> new Rating(e.getMovieId(), e.getRating()))
-                .collect(Collectors.toList());
-
+        List<Rating> ratings = ratingService.getRatingsByUserId(userId);
         return new UserRating(ratings);
-
     }
 }

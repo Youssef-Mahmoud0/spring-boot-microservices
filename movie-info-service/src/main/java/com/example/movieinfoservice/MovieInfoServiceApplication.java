@@ -32,7 +32,7 @@ public class MovieInfoServiceApplication {
         return args -> {
             long count = movieCacheRepository.count();
             movieCacheRepository.deleteAll();
-            System.out.println("✅ Cache truncated on startup. Removed " + count + " entries.");
+            System.out.println("Cache truncated on startup. Removed " + count + " entries.");
         };
     }
 
